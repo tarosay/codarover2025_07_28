@@ -33,5 +33,20 @@ function 動く (右タイヤ: number, 左タイヤ: number) {
     pins.analogWritePin(AnalogPin.P16, P16_PWM)
 }
 basic.forever(function () {
-	
+    動く(90, 90)
+    basic.pause(200)
+    動く(0, 0)
+    basic.pause(500)
+    動く(-90, -90)
+    basic.pause(200)
+    動く(0, 0)
+    basic.pause(500)
+    動く(90, -90)
+    basic.pause(1000)
+    動く(0, 0)
+    basic.pause(500)
+    動く(-90, 90)
+    basic.pause(1000)
+    動く(0, 0)
+    basic.pause(500)
 })
