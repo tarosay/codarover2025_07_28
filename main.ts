@@ -1,7 +1,3 @@
-let 動く右 = 0
-let 動く左 = 0
-let P13_PWM = 0
-let P16_PWM = 0
 function 動く (右タイヤ: number, 左タイヤ: number) {
     if (右タイヤ >= 0) {
         pins.digitalWritePin(DigitalPin.P8, 0)
@@ -32,21 +28,32 @@ function 動く (右タイヤ: number, 左タイヤ: number) {
     pins.analogWritePin(AnalogPin.P13, P13_PWM)
     pins.analogWritePin(AnalogPin.P16, P16_PWM)
 }
+let 動く左 = 0
+let 動く右 = 0
+let P16_PWM = 0
+let P13_PWM = 0
+P13_PWM = 0
+P16_PWM = 0
+basic.showIcon(IconNames.Happy)
 basic.forever(function () {
+    動く(0, 0)
+    basic.showArrow(ArrowNames.North)
+    basic.pause(500)
     動く(90, 90)
     basic.pause(200)
     動く(0, 0)
+    basic.showArrow(ArrowNames.South)
     basic.pause(500)
     動く(-90, -90)
     basic.pause(200)
     動く(0, 0)
+    basic.showArrow(ArrowNames.East)
     basic.pause(500)
     動く(90, -90)
     basic.pause(1000)
     動く(0, 0)
+    basic.showArrow(ArrowNames.West)
     basic.pause(500)
     動く(-90, 90)
     basic.pause(1000)
-    動く(0, 0)
-    basic.pause(500)
 })
