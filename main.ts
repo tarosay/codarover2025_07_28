@@ -1,20 +1,20 @@
 function 動く (右タイヤ: number, 左タイヤ: number) {
     if (右タイヤ >= 0) {
-        pins.digitalWritePin(DigitalPin.P8, 0)
-        pins.digitalWritePin(DigitalPin.P9, 1)
-        動く右 = 右タイヤ
-    } else {
-        pins.digitalWritePin(DigitalPin.P8, 1)
-        pins.digitalWritePin(DigitalPin.P9, 0)
-        動く右 = 0 - 右タイヤ
-    }
-    if (左タイヤ >= 0) {
         pins.digitalWritePin(DigitalPin.P14, 0)
         pins.digitalWritePin(DigitalPin.P15, 1)
-        動く左 = 左タイヤ
+        動く右 = 右タイヤ
     } else {
         pins.digitalWritePin(DigitalPin.P14, 1)
         pins.digitalWritePin(DigitalPin.P15, 0)
+        動く右 = 0 - 右タイヤ
+    }
+    if (左タイヤ >= 0) {
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P9, 1)
+        動く左 = 左タイヤ
+    } else {
+        pins.digitalWritePin(DigitalPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P9, 0)
         動く左 = 0 - 左タイヤ
     }
     P13_PWM = 1023 * (動く左 / 100)
@@ -47,12 +47,12 @@ basic.forever(function () {
     動く(-90, -90)
     basic.pause(200)
     動く(0, 0)
-    basic.showArrow(ArrowNames.East)
+    basic.showArrow(ArrowNames.West)
     basic.pause(500)
     動く(90, -90)
     basic.pause(1000)
     動く(0, 0)
-    basic.showArrow(ArrowNames.West)
+    basic.showArrow(ArrowNames.East)
     basic.pause(500)
     動く(-90, 90)
     basic.pause(1000)
